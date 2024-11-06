@@ -1,4 +1,5 @@
 import { Player } from "../game-objects/player";
+import { Generator } from "../generator";
 
 export class GameScene extends Phaser.Scene {
     constructor () {
@@ -8,12 +9,12 @@ export class GameScene extends Phaser.Scene {
     prelode() {}
     
     create() {
-        this.width = this.sys.game.config.width;
-        this.height = this.sys.game.config.height;
+        
+        this.cameras.main.setBackgroundColor(0x222222);
 
-        this.cameras.main.setBackgroundColor(0x000000);
+        this.Generator = new Generator (this);
 
-        this.player = new Player (this, this.width / 2, this.height / 2);
+        this.player = new Player (this, WIDTH / 2, HEIGHT / 2);
     }
 
     update () {
