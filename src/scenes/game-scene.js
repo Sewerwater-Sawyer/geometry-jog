@@ -1,5 +1,7 @@
 import { Player } from "../game-objects/player";
 import { Generator } from "../generator";
+import { WIDTH, HEIGHT } from "../constants";
+
 
 export class GameScene extends Phaser.Scene {
     constructor () {
