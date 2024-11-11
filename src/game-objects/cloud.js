@@ -17,7 +17,5 @@ export class Cloud extends Phaser.GameObjects.Rectangle {
                 this.destroy ();
             }
         });
-
-        console.log ( "Cloud constructor", this );
     }
 }

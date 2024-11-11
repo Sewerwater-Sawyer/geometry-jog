@@ -10,6 +10,7 @@ export class Generator {
     init () {
         console.log ( "generator.init" );
         this.generateCloud ();
+        this.generateObstacle ();
     }
 
     generateCloud () {
@@ -17,6 +18,19 @@ export class Generator {
         this.scene.time.delayedCall (
             Phaser.Math.Between (2000, 3000),
             () => this.generateCloud (),
+            undefined,
+            this
+        );
+    }
+
+    generateObstacle () {
+        this.scene.obsicals.add (
+            newObstacal (this.scene)
+        );
+
+        this.scene.time.delayedCall (
+            Phaser.Math.Between (1500, 2500),
+            () => this.generateObstacle (),
             undefined,
             this
         );
