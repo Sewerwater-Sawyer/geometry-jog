@@ -24,8 +24,8 @@ export class Generator {
     }
 
     generateObstacle () {
-        this.scene.obsicals.add (
-            newObstacal (this.scene)
+        this.scene.obstacles.add (
+            newObstacle (this.scene)
         );
 
         this.scene.time.delayedCall (
