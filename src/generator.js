@@ -1,38 +1,38 @@
 import { Cloud } from "./game-objects/cloud";
+import { Obstacle } from "./game-objects/obstacle";
 
 export class Generator {
-    constructor (scene) {
-        this.scene = scene;
+	constructor(scene) {
+		this.scene = scene;
 
-        this.scene.time.delayedCall (2000, () => this.init (), undefined, this);
-    }
+		// call the init method after 2 seconds
+		this.scene.time.delayedCall(2000, () => this.init(), undefined, this);
+	}
 
-    init () {
-        console.log ( "generator.init" );
-        this.generateCloud ();
-        this.generateObstacle ();
-    }
+	init() {
+		console.log("Generator init");
+		this.generateCloud();
+		this.generateObstacle();
+	}
 
-    generateCloud () {
-        new Cloud (this.scene);
-        this.scene.time.delayedCall (
-            Phaser.Math.Between (2000, 3000),
-            () => this.generateCloud (),
-            undefined,
-            this
-        );
-    }
+	generateCloud() {
+		new Cloud(this.scene);
+		this.scene.time.delayedCall(
+			Phaser.Math.Between(2000, 3000),
+			() => this.generateCloud(),
+			undefined,
+			this
+		);
+	}
 
-    generateObstacle () {
-        this.scene.obstacles.add (
-            newObstacle (this.scene)
-        );
+	generateObstacle() {
+		this.scene.obstacles.add(new Obstacle(this.scene));
 
-        this.scene.time.delayedCall (
-            Phaser.Math.Between (1500, 2500),
-            () => this.generateObstacle (),
-            undefined,
-            this
-        );
-    }
+		this.scene.time.delayedCall(
+			Phaser.Math.Between(1500, 2500),
+			() => this.generateObstacle(),
+			undefined,
+			this
+		);
+	}
 }

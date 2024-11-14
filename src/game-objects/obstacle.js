@@ -7,8 +7,8 @@ export class Obstacle extends Phaser.GameObjects.Rectangle {
             Phaser.Math.Between (HEIGHT - 32, HEIGHT - 100),
             32,
             32,
-            oxff0000
-        );
+            0xff0000
+    );
 
         this.scene.add.existing (this);
         this.scene.physics.add.existing (this);

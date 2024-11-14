@@ -1,7 +1,7 @@
 // //@ts-check
 export class Player extends Phaser.GameObjects.Rectangle {
   constructor(gameScene, x, y) {
-    super(gameScene, x, y, 32, 32, 0x00ff00);
+    super(gameScene, x, y, 32 , 32, 0x00ff00);
 
     this.setOrigin(0.5);
 
