@@ -37,11 +37,13 @@ export class Player extends Phaser.GameObjects.Rectangle {
   }
 
   jump() {
-    if (!this.body.blocked.down) {
+    if (this.body.blocked.down) {
       return;
     }
 
-    this.body.setVelocityY(-350);
+    this.scene.sound.play ("jump");
+
+    this.body.setVelocityY(-250);
     this.jumpTween.restart();
   }
 }
